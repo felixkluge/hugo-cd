@@ -9,35 +9,35 @@
     - `mv hugo ~/bin/`
     - `hugo version`
 
-Create new site and flatten directory structure
+- Create new site and flatten directory structure
     - `hugo new site quickstart`
     - `mv quickstart/* .`
     - `rm -r quickstart/`
 
-Add theme
+- Add theme
     - `git submodule add git@github.com:theNewDynamic/gohugo-theme-ananke.git themes/ananke`
     - `echo 'theme = "ananke"' >> hugo.toml`
     
-Update .gitignore
+- Update .gitignore
     - Add `public`
     
-New post
+- New post
     - `hugo new posts/first_post.md`
     
-Two ways to look at Hugo site:
+- Two ways to look at Hugo site:
     - Serve it on a EC2 instance
         - Open port 8080
         - AWS Management console -> EC2 -> Running instance -> select correct instance
         - Security -> Add inbound rules, port 8080
         - `curl ipinfo.io` -> get ip adress
-        - `hugo serve --bind=0.0.0.0 --port=8080 --baseURL=http://3.250.156.223` 
+        - `hugo serve --bind=0.0.0.0 --port=8080 --baseURL=http://3.250.156.223`
+        - Cons: What if EC2 instance goes down? -> Serverless would be the better option (Can just be copied over)
     - Look at directory offline
         - `hugo` -> creates public directory
         - Download public directory
-    - Cons:
-        - What if EC2 instance goes down? -> Serverless would be the better option (Can just be copied over)
     
-Move it to an S3 bucket to serve it out
+    
+- Move it to an S3 bucket to serve it out
     - Create a new bucket, e.g. hugocdwebsite
     - Enable *Static website hosting*
     - Disable "Block public access"
