@@ -6,7 +6,7 @@
     - `wget  https://github.com/gohugoio/hugo/releases/download/v0.129.0/hugo_extended_0.129.0_Linux-64bit.tar.gz` (make sure you get the extended version for compatibility with the theme)
     - `tar zxvf hugo_0.129.0_linux-amd64.tar.gz`
     - `mkdir -p ~/bin`
-    - `mv hugo ~/bin/`
+    - `mv hugo ~/bin/` or `sudo  mv ~/bin/hugo /usr/local/bin/`
     - `hugo version`
 
 - Create new site and flatten directory structure
@@ -23,13 +23,15 @@
     
 - New post
     - `hugo new posts/first_post.md`
+    - in content/posts/first_post.md, set `draft: false`
     
 - Two ways to look at Hugo site:
     - Serve it on a EC2 instance
         - Open port 8080
         - AWS Management console -> EC2 -> Running instance -> select correct instance
         - Security -> Add inbound rules, port 8080
-        - `curl ipinfo.io` -> get ip adress
+
+        - `curl ipinfo.io` -> get ip adress (can also be obtained from AWS console -> EC2 instance properties -> Public adress)
         - `hugo serve --bind=0.0.0.0 --port=8080 --baseURL=http://3.250.156.223`
         - Cons: What if EC2 instance goes down? -> Serverless would be the better option (Can just be copied over)
     - Look at directory offline
