@@ -62,4 +62,5 @@
         - Download public folder 
         - Upload it to the S3 Bucket
         - Open the link given in the "Static website hosting" section http://hugocdwebsite.s3-website-eu-west-1.amazonaws.com/
+        - ...
     
